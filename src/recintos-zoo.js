@@ -57,7 +57,7 @@ class RecintosZoo {
                 let espacoLivre = this.recintos[3].tamanhoTotal - this.recintos[3].animaisExistentes;
                 return {
                     recintosViaveis: [
-                        `Recinto 4 (espaço livre: ${espacoLivre} total : ${this.recintos[3].tamanhoTotal})`
+                        `Recinto 4 (espaço livre: ${espacoLivre} total : ${this.recintos[3].tamanhoTotal}) `
                     ]
                 }
             }
@@ -88,6 +88,62 @@ class RecintosZoo {
             if(this.recintos[2].animaisExistentes <= this.recintos[2].tamanhoTotal) {
                 let espacoLivre = this.recintos[2].tamanhoTotal - this.recintos[2].animaisExistentes;
                 recintosPossiveis.recintosViaveis.push(`Recinto 3 (espaço livre: ${espacoLivre} total : ${this.recintos[2].tamanhoTotal})`);
+            }
+
+            if(recintosPossiveis.recintosViaveis.length === 0) {
+                return "Não há recintos disponíveis";
+            }
+
+            return recintosPossiveis;
+        }
+
+        if(animal === "gazela") {
+
+            const recintosPossiveis = {
+                recintosViaveis : [
+
+                ]
+            }
+
+            this.recintos[0].animaisExistentes += (remessa + 1);
+            this.recintos[2].animaisExistentes += remessa;
+
+            if(this.recintos[0].animaisExistentes <= this.recintos[0].tamanhoTotal) {
+                let espacoLivre = this.recintos[0].tamanhoTotal - this.recintos[0].animaisExistentes;
+                recintosPossiveis.recintosViaveis.push(`Recinto 1 (espaço livre: ${espacoLivre} total : ${this.recintos[0].tamanhoTotal})`);
+            }
+
+            if(this.recintos[2].animaisExistentes <= this.recintos[2].tamanhoTotal) {
+                let espacoLivre = this.recintos[2].tamanhoTotal - this.recintos[2].animaisExistentes;
+                recintosPossiveis.recintosViaveis.push(`Recinto 3 (espaço livre: ${espacoLivre} total : ${this.recintos[2].tamanhoTotal})`);
+            }
+
+            if(recintosPossiveis.recintosViaveis.length === 0) {
+                return "Não há recintos disponíveis";
+            }
+
+            return recintosPossiveis;
+        }
+
+        if(animal === "hipopotamo") {
+            
+            const recintosPossiveis = {
+                recintosViaveis: [
+
+                ]
+            }
+
+            this.recintos[2].animaisExistentes += (remessa +1);
+            this.recintos[3].animaisExistentes += remessa;
+
+            if(this.recintos[2].animaisExistentes <= this.recintos[2].tamanhoTotal) {
+                let espacoLivre = this.recintos[2].tamanhoTotal - this.recintos[2].animaisExistentes;
+                recintosPossiveis.recintosViaveis.push(`Recinto 3 (espaço livre: ${espacoLivre} total : ${this.recintos[2].tamanhoTotal})`);
+            }
+
+            if(this.recintos[3].animaisExistentes <= this.recintos[3].tamanhoTotal) {
+                let espacoLivre = this.recintos[3].tamanhoTotal - this.recintos[3].animaisExistentes;
+                recintosPossiveis.recintosViaveis.push(`Recinto 4 (espaço livre: ${espacoLivre} total : ${this.recintos[3].tamanhoTotal})`);
             }
 
             if(recintosPossiveis.recintosViaveis.length === 0) {
@@ -156,7 +212,7 @@ class CriaRecintos {
     }
 }
 
-const zoo = new RecintosZoo().analisaRecintos("macaco", 8);
+const zoo = new RecintosZoo().analisaRecintos("crocodilo", 2);
 
  
 
